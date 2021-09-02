@@ -4,16 +4,7 @@ var wordDefinitionEl = document.querySelector("#wordDefinition");
 var wordSynonymsEl = document.querySelector("#wordSynonyms");
 var wordOriginEl = document.querySelector("#wordOrigin");
 var wordExampleEl = document.querySelector("#wordExample");
-// var word = "Dog"
-
-
-
-
-//
 var gifApiKEY = "RZpOWDlrvuEl5BafWnBkzvpjjuVEaDra"
-
-
-//
 
 function search(e) {
     e.preventDefault()
@@ -57,31 +48,12 @@ function search(e) {
         })
 }
 
-
-searchButtonEl.addEventListener("click", search)
-
-
-
-
-
-
-
-
-
-// Alexis - gif vars and functions
-//gif var
-var gifSearchWord = document.querySelector("#click");
-//gif var
-//gif input
-var gif1InputEl = document.querySelector('#gif1')
-
-
+// var wordInputEl = document.querySelector('#wordtyped');
+// var wordSearched = document.querySelector('#word-searched');
+var imageContainerEl = document.querySelector('.prof-image');
 
 var getGiphy = function (gif) {
-
     var gifUrl = 'https://api.giphy.com/v1/gifs/search?q=' + gif + "&api_key=" + gifApiKEY + "&limit=10" + "&rating=pg";
-
-
 
     fetch(gifUrl)
         .then(function (response) {
@@ -92,55 +64,24 @@ var getGiphy = function (gif) {
             console.log(data)
         })
         .catch(function (err) {
-            console.error(err);
+            console.log(err);
         });
+};
 
+var displaygif = function (gifData, gifName) {
+    if (gifData.data.length === 0) {
+        wordContainerEl.textContent = "no gif found :(";
+        return;
+    }
+    console.log('IMAGE DATA', gifData.data[0].images.fixed_height.url);
+    console.log(imageContainerEl);
+    // wordSearched.textContent = gifName;
+    imageContainerEl.innerHTML = "";
+    let gifEl = document.createElement("img");
+    gifEl.setAttribute("alt", "placeholder text");
+    gifEl.setAttribute("src",  gifData.data[0].images.fixed_height.url); 
+    imageContainerEl.appendChild(gifEl);
 };
 
 
-var displaygif = function (gifData, gifName) {
-    if (gifData.length === 0) {
-        weatherContainerEL.textContent = "no gif found :(";
-        return;
-    }
-
-    console.log(gifData)
-    // gifSearchWord.textContent = gifName
-
-
-}
-
-    // fetch(gifUrl) weather fetch- doesn't seem to work here
-    //     .then(function (response) {
-    //         if (response.ok) {
-    //             response.json().then(function (data1) {
-
-    //                 displaygif(data1, gif);
-    //                 console.log(data1);
-    //             });
-    //         } else {
-    //             alert('Error Input: ' + response.statusText) // can't use alerts must use modals- if nothing was entered
-    //         }
-    //     })
-    //     .catch(function (error) {
-    //         alert('no connetion - secure the api using meta');// you cant use alerts- this is just a placeholder.
-    //     });
-
-//};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+searchButtonEl.addEventListener("click", search)
