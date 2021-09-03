@@ -84,4 +84,32 @@ var displaygif = function (gifData, gifName) {
 };
 
 
+// storage
+var wordHistory = document.getElementById("wordInput");
+//var searchButtonEl = document.querySelector("#click");
+
+
+
 searchButtonEl.addEventListener("click", search)
+searchButtonEl.addEventListener("click", wordplace)
+
+
+function wordplace (event) {
+    event.preventDefault();
+    var word = {
+  
+      wordHistory: wordHistory.value.trim()
+    };
+  
+    localStorage.setItem("word", JSON.stringify(word));
+    renderWord();
+  
+  };
+  
+  function renderWord() {
+    var lastWord = JSON.parse(localStorage.getItem("word"));
+    if (lastWord !== null) {
+      document.querySelector(".message").textContent =
+        " Last Word Used: " + lastWord.wordHistory
+    }
+  };
