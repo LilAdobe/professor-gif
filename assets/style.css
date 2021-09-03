@@ -1,3 +1,8 @@
 body {
     font-family: 'ZCOOL KuaiLe', cursive;
 }
+
+.main-content{
+    min-height: 85vh;
+    background-color: #485fc7;
+}

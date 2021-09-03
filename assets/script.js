@@ -16,15 +16,19 @@ function search(e) {
             return response.json();
         })
         .then(function (data) {
+<<<<<<< HEAD
+        
+            getGiphy(word);
+          
+=======
 
             getGiphy(word);
         
+>>>>>>> b35822f7fd14fba0f1e1a5d4e12b7de44b3749f3
 
             wordTitleEl.textContent = word + ":";
             wordDefinitionEl.textContent = data[0].meanings[0].definitions[0].definition
-           // wordSynonymsEl.textContent = data[0].meanings[0].definitions[0].synonyms
-            //wordOriginEl.textContent = data[0].origin
-
+           
             if (!data[0].meanings[0].definitions[0].synonyms) {
                 wordSynonymsEl.textContent = "No synonym available"
             } else {
@@ -45,8 +49,7 @@ function search(e) {
         })
 }
 
-// var wordInputEl = document.querySelector('#wordtyped');
-// var wordSearched = document.querySelector('#word-searched');
+
 var imageContainerEl = document.querySelector('.prof-image');
 
 var getGiphy = function (gif) {
