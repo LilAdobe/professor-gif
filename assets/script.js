@@ -16,18 +16,13 @@ function search(e) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data)
+        
             getGiphy(word);
-            console.log(data[0].meanings[0].definitions[0].definition);
-            console.log(data[0].meanings[0].definitions[0].synonyms);
-            console.log(data[0].meanings[0].definitions[0].example);
-            console.log(data[0].origin);
+          
 
             wordTitleEl.textContent = word + ":";
             wordDefinitionEl.textContent = data[0].meanings[0].definitions[0].definition
-           // wordSynonymsEl.textContent = data[0].meanings[0].definitions[0].synonyms
-            //wordOriginEl.textContent = data[0].origin
-
+           
             if (!data[0].meanings[0].definitions[0].synonyms) {
                 wordSynonymsEl.textContent = "No synonym available"
             } else {
@@ -48,8 +43,7 @@ function search(e) {
         })
 }
 
-// var wordInputEl = document.querySelector('#wordtyped');
-// var wordSearched = document.querySelector('#word-searched');
+
 var imageContainerEl = document.querySelector('.prof-image');
 
 var getGiphy = function (gif) {

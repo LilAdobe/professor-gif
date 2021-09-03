@@ -2,8 +2,6 @@
 
 [link to LIVE site]()
 
-
-
 ## User Story 
 
 ```
