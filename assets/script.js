@@ -16,9 +16,15 @@ function search(e) {
             return response.json();
         })
         .then(function (data) {
+<<<<<<< HEAD
         
             getGiphy(word);
           
+=======
+
+            getGiphy(word);
+        
+>>>>>>> b35822f7fd14fba0f1e1a5d4e12b7de44b3749f3
 
             wordTitleEl.textContent = word + ":";
             wordDefinitionEl.textContent = data[0].meanings[0].definitions[0].definition
@@ -55,10 +61,10 @@ var getGiphy = function (gif) {
         })
         .then(function (data) {
             displaygif(data, gif)
-            console.log(data)
+
         })
         .catch(function (err) {
-            console.log(err);
+
         });
 };
 
@@ -67,8 +73,7 @@ var displaygif = function (gifData, gifName) {
         wordContainerEl.textContent = "no gif found :(";
         return;
     }
-    console.log('IMAGE DATA', gifData.data[0].images.fixed_height.url);
-    console.log(imageContainerEl);
+   
     // wordSearched.textContent = gifName;
     imageContainerEl.innerHTML = "";
     let gifEl = document.createElement("img");
