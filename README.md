@@ -1,7 +1,7 @@
 # professor-gif
 
-[link to LIVE site]()
-
+1. [link to LIVE site](https://liladobe.github.io/professor-gif/)
+2. [GitHub](https://github.com/LilAdobe/professor-gif)
 
 
 ## User Story 
