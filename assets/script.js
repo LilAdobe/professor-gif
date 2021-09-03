@@ -16,15 +16,11 @@ function search(e) {
             return response.json();
         })
         .then(function (data) {
-<<<<<<< HEAD
-        
-            getGiphy(word);
-          
-=======
 
-            getGiphy(word);
         
->>>>>>> b35822f7fd14fba0f1e1a5d4e12b7de44b3749f3
+            getGiphy(word);
+     
+        
 
             wordTitleEl.textContent = word + ":";
             wordDefinitionEl.textContent = data[0].meanings[0].definitions[0].definition
